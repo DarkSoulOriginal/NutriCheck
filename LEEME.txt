@@ -1,0 +1,7 @@
+NutriCheck PWA - versión inicial
+
+Incluye registro manual de alimentos, gramos, kcal y macros; fotografía opcional; meta diaria editable; almacenamiento local en el navegador y exportación JSON.
+
+Para instalar como PWA, publica estos archivos en un sitio HTTPS (por ejemplo GitHub Pages o Netlify) y abre la dirección en Chrome Android. Luego usa el menú del navegador > Instalar aplicación o Añadir a pantalla de inicio.
+
+Nota: esta versión no identifica alimentos automáticamente por fotografía; la foto queda adjunta al registro y los valores nutricionales se capturan manualmente.
