@@ -1,21 +1,31 @@
-NutriCheck - actualización 2.5.7
+NutriCheck — Beta 1.1
 
-CORRECCIONES Y FUNCIONES
-- Se corrige un error de renderizado que intentaba actualizar un elemento inexistente y detenía la actualización de la pantalla.
-- Los botones para elegir alimentos y confirmar cantidades usan delegación de eventos.
-- Se conservan las unidades g, kg, oz, lb y las unidades por pieza cuando están definidas.
-- Se incluye huevo cocido (duro) en el catálogo.
-- Consultar una receta de la biblioteca no suma calorías al Diario. Solo el botón “La consumí: agregar al Diario” registra una porción.
-- Se conserva el diseño, las metas, los alimentos, las recetas y el historial existentes.
+NOVEDADES
+- Al instalar por primera vez en un dispositivo nuevo, muestra un cuestionario breve de perfil.
+- Permite calcular mantenimiento con edad, peso, estatura, sexo usado por la fórmula y nivel de actividad.
+- También permite introducir manualmente las calorías de mantenimiento.
+- Calcula una meta orientativa según el objetivo: perder grasa, mantener peso o ganar masa muscular.
+- Incluye “Configurar después”; la app funciona sin una meta personalizada.
+- En Ajustes se agrega “Mi perfil y objetivos” para editar la configuración cuando se quiera.
+
+COMPATIBILIDAD Y DATOS
+- Se conserva la clave localStorage nutricheck-v1.
+- Al actualizar una instalación que ya tenía datos, se conserva la meta existente y no se abre el cuestionario automáticamente.
+- En una instalación nueva, no se usa una meta predeterminada ni datos personales de otra persona.
+- Los alimentos, recetas, unidades, diseño, progreso e historial de Beta 1.0 se mantienen.
+- Los cálculos de mantenimiento son estimaciones orientativas, no una indicación médica.
 
 CÓMO ACTUALIZAR EN GITHUB PAGES
-1. Descomprime este ZIP.
-2. En tu repositorio, reemplaza index.html y sw.js por los incluidos aquí.
-3. Conserva manifest.json (también se incluye una copia).
-4. Guarda los cambios con Commit changes.
-5. Abre NutriCheck con internet y espera a que se instale la nueva versión. Si no cambia, cierra la PWA por completo y vuelve a abrirla.
+1. Exporta un respaldo desde Comidas > Diario.
+2. Descomprime este ZIP.
+3. Reemplaza index.html y sw.js en el repositorio.
+4. Conserva manifest.json (se incluye una copia).
+5. Guarda los cambios con Commit changes.
+6. Abre NutriCheck con internet y espera la actualización de la caché. Si no cambia, cierra la PWA por completo y vuelve a abrirla.
 
-DATOS
-- Se conserva la clave localStorage nutricheck-v1 para mantener los datos guardados en el teléfono.
-- Los datos permanecen en cada dispositivo; GitHub Pages no los sincroniza entre usuarios o teléfonos.
-- Exporta un respaldo desde Comidas > Diario antes de actualizar.
+PRUEBA DE PRIMERA INSTALACIÓN
+- Para ver el cuestionario inicial, usa un dispositivo o navegador donde NutriCheck no tenga datos guardados.
+- No borres los datos del dispositivo donde ya tienes Beta 1.0 si quieres conservar tu historial.
+
+VERSIÓN BASE
+- Beta 1.0 permanece como versión de respaldo y no se modifica.
