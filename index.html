@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10251f"><link rel="manifest" href="manifest.json"><title>NutriCheck</title><style>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10251f"><link rel="manifest" href="manifest.json"><title>NutriCheck 2.5.7</title><style>
 :root{color-scheme:dark;--bg:#0b1512;--panel:#14231e;--text:#f2f7f3;--muted:#a9bdb2;--green:#78e0a3;--line:#294238;--red:#f06464;--blue:#65b8f4}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#142820,#0b1512 45%);color:var(--text);font:16px system-ui}main{max-width:760px;margin:auto;padding:18px 14px 105px}
 h1{margin:0}h2{font-size:18px}.muted,small,label{color:var(--muted)}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
@@ -144,7 +144,7 @@ document.getElementById('preferredUnit').value=db.preferredUnit||'g';document.ge
 
 function render(){
  let t=day().reduce((a,x)=>({k:a.k+x.k,p:a.p+x.p,c:a.c+x.c,f:a.f+x.f}),{k:0,p:0,c:0,f:0}), consumed=t.k,goal=Number(db.goal)||2400,over=consumed>goal,ratio=goal>0?consumed/goal:0,pct=Math.min(100,ratio*100),remaining=Math.max(0,goal-consumed),extra=Math.max(0,consumed-goal);
- document.getElementById('kcal').textContent=Math.round(consumed)+' kcal';document.getElementById('goal').textContent=goal.toLocaleString('es-MX');
+ document.getElementById('goal').textContent=goal.toLocaleString('es-MX');
  let fill=document.getElementById('gaugeFill');fill.setAttribute('stroke-dasharray',`${pct} ${100-pct}`);fill.classList.toggle('over',over);
  document.getElementById('gaugeCaption').textContent=over?'Te pasaste':'Te quedan';document.getElementById('gaugeNumber').textContent=Math.round(over?extra:remaining).toLocaleString('es-MX');document.getElementById('gaugeUnit').textContent='kcal';document.getElementById('gaugeGoal').textContent=goal.toLocaleString('es-MX');document.getElementById('consumedLabel').textContent=Math.round(consumed).toLocaleString('es-MX')+' kcal consumidas';document.getElementById('percentLabel').textContent=Math.round(ratio*100)+'%';
  let badge=document.getElementById('todayBadge');badge.textContent=over?'Meta superada':'Dentro de tu objetivo';badge.className='badge'+(over?' red':'');document.getElementById('maintenanceHome').textContent=db.maintenance?Number(db.maintenance).toLocaleString('es-MX'):'—';
