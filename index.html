@@ -65,7 +65,7 @@ const recipeCatalog=[{"name":"Pechuga de pollo con arroz blanco cocido a la plan
 function renderCatalog(){
  const q=(document.getElementById('catalogSearch').value||'').toLowerCase(),cat=document.getElementById('catalogCategory').value;
  const hits=recipeCatalog.filter(r=>(!cat||r.category===cat)&&(!q||r.name.toLowerCase().includes(q)||r.ingredients.some(i=>i.food.toLowerCase().includes(q)))).slice(0,35),el=document.getElementById('catalogResults');
- el.innerHTML=hits.map(r=>`<div class="result"><b>${esc(r.name)}</b><small style="display:block">${esc(r.category)} · ${r.ingredients.length} ingredientes</small><button type="button" data-catalog="${recipeCatalog.indexOf(r)}">Ver y guardar</button><div class="catalog-detail hidden" id="catalog-detail-${recipeCatalog.indexOf(r)}"></div></div>`).join('')||'<div class="empty">No hay recetas con esa búsqueda.</div>';
+ el.innerHTML=hits.map(r=>`<div class="result"><b>${esc(r.name)}</b><small style="display:block">${esc(r.category)} · ${r.ingredients.length} ingredientes</small><button type="button" data-catalog="${recipeCatalog.indexOf(r)}">Ver receta</button><div class="catalog-detail hidden" id="catalog-detail-${recipeCatalog.indexOf(r)}"></div></div>`).join('')||'<div class="empty">No hay recetas con esa búsqueda.</div>';
  el.querySelectorAll('[data-catalog]').forEach(b=>b.onclick=()=>{
    const idx=+b.dataset.catalog,r=recipeCatalog[idx],detail=document.getElementById('catalog-detail-'+idx);
    const tot={k:0,p:0,c:0,f:0};
@@ -74,13 +74,20 @@ function renderCatalog(){
      if(f){const v=val(f,i.g);tot.k+=v.k;tot.p+=v.p;tot.c+=v.c;tot.f+=v.f;}
      return `<li>${esc(i.food)}: ${i.g} g</li>`;
    }).join('');
-   if(!db.recipes.some(x=>x.catalogId===idx)){
-     db.recipes.push({catalogId:idx,name:r.name,portions:1,finalWeight:r.ingredients.reduce((s,i)=>s+i.g,0),per:tot,ingredients:r.ingredients.map(i=>i.food+' '+i.g+' g'),prep:r.prep,category:r.category});
-     save();
+   let saved=db.recipes.find(x=>x.catalogId===idx);
+   if(!saved){
+     saved={catalogId:idx,name:r.name,portions:1,finalWeight:r.ingredients.reduce((s,i)=>s+i.g,0),per:tot,ingredients:r.ingredients.map(i=>i.food+' '+i.g+' g'),prep:r.prep,category:r.category};
+     db.recipes.push(saved);save();
    }
-   detail.innerHTML=`<hr style="border-color:var(--line);margin:12px 0"><b>Ingredientes</b><ul>${ingredientRows}</ul><b>Preparación</b><p>${esc(r.prep)}</p><div class="result"><b>Macros estimados de toda la receta</b><small style="display:block">${Math.round(tot.k)} kcal · Proteína ${tot.p.toFixed(1)} g · Carbohidratos ${tot.c.toFixed(1)} g · Grasas ${tot.f.toFixed(1)} g</small></div><p class="status">Receta guardada en Mis recetas.</p>`;
+   detail.innerHTML=`<hr style="border-color:var(--line);margin:12px 0"><b>Ingredientes</b><ul>${ingredientRows}</ul><b>Preparación</b><p>${esc(r.prep)}</p><div class="result"><b>Macros estimados por receta</b><small style="display:block">${Math.round(tot.k)} kcal · Proteína ${tot.p.toFixed(1)} g · Carbohidratos ${tot.c.toFixed(1)} g · Grasas ${tot.f.toFixed(1)} g</small></div><p class="muted">Consultar esta receta no suma calorías a tu Diario.</p><button type="button" data-eat-recipe="${idx}">La consumí: agregar al Diario</button><p class="status" id="eat-status-${idx}" aria-live="polite"></p>`;
    detail.classList.toggle('hidden');
-   b.textContent=detail.classList.contains('hidden')?'Ver y guardar':'Ocultar receta';
+   b.textContent=detail.classList.contains('hidden')?'Ver receta':'Ocultar receta';
+   const eat=detail.querySelector('[data-eat-recipe]');
+   eat.onclick=()=>{
+     day().push({name:r.name+' (1 porción)',grams:r.ingredients.reduce((s,i)=>s+i.g,0),k:tot.k,p:tot.p,c:tot.c,f:tot.f});
+     save();
+     document.getElementById('eat-status-'+idx).textContent='Agregada al Diario de hoy: '+Math.round(tot.k)+' kcal.';
+   };
  });
 }
 document.getElementById('catalogSearch').oninput=renderCatalog;document.getElementById('catalogCategory').onchange=renderCatalog;
