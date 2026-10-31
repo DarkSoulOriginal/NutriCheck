@@ -1,0 +1,21 @@
+NutriCheck - actualización 2.5.7
+
+CORRECCIONES Y FUNCIONES
+- Se corrige un error de renderizado que intentaba actualizar un elemento inexistente y detenía la actualización de la pantalla.
+- Los botones para elegir alimentos y confirmar cantidades usan delegación de eventos.
+- Se conservan las unidades g, kg, oz, lb y las unidades por pieza cuando están definidas.
+- Se incluye huevo cocido (duro) en el catálogo.
+- Consultar una receta de la biblioteca no suma calorías al Diario. Solo el botón “La consumí: agregar al Diario” registra una porción.
+- Se conserva el diseño, las metas, los alimentos, las recetas y el historial existentes.
+
+CÓMO ACTUALIZAR EN GITHUB PAGES
+1. Descomprime este ZIP.
+2. En tu repositorio, reemplaza index.html y sw.js por los incluidos aquí.
+3. Conserva manifest.json (también se incluye una copia).
+4. Guarda los cambios con Commit changes.
+5. Abre NutriCheck con internet y espera a que se instale la nueva versión. Si no cambia, cierra la PWA por completo y vuelve a abrirla.
+
+DATOS
+- Se conserva la clave localStorage nutricheck-v1 para mantener los datos guardados en el teléfono.
+- Los datos permanecen en cada dispositivo; GitHub Pages no los sincroniza entre usuarios o teléfonos.
+- Exporta un respaldo desde Comidas > Diario antes de actualizar.
