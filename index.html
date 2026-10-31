@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10251f"><link rel="manifest" href="manifest.json"><title>NutriCheck 2.5.7</title><style>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#10251f"><link rel="manifest" href="manifest.json"><title>NutriCheck Beta 1.1</title><style>
 :root{color-scheme:dark;--bg:#0b1512;--panel:#14231e;--text:#f2f7f3;--muted:#a9bdb2;--green:#78e0a3;--line:#294238;--red:#f06464;--blue:#65b8f4}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#142820,#0b1512 45%);color:var(--text);font:16px system-ui}main{max-width:760px;margin:auto;padding:18px 14px 105px}
 h1{margin:0}h2{font-size:18px}.muted,small,label{color:var(--muted)}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
@@ -6,6 +6,10 @@ h1{margin:0}h2{font-size:18px}.muted,small,label{color:var(--muted)}.card{backgr
 input,select{width:100%;background:#0d1a15;color:white;border:1px solid var(--line);border-radius:9px;padding:11px;font:inherit}button{border:0;border-radius:10px;padding:11px 13px;background:var(--green);color:#092016;font-weight:700;cursor:pointer}button.secondary{background:#263d33;color:white}
 .result{background:#0d1a15;border:1px solid var(--line);padding:10px;border-radius:10px;margin:8px 0}.qtybox{display:flex;gap:8px;align-items:end;margin-top:10px;flex-wrap:wrap}.qtybox .field{flex:1;min-width:95px;margin:0}.qtybox select{padding:11px}.status{color:var(--green);font-size:13px;margin-top:8px;min-height:18px}.targetbox{display:grid;grid-template-columns:1fr 1fr;gap:10px}.targetbox .field{margin:0}.hint,.note{font-size:12px;color:var(--muted)}.macro{display:inline-block;background:#20372d;padding:10px;border-radius:10px;margin:4px}.food{padding:10px 0;border-top:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px}.brand-mark{width:38px;height:38px;border-radius:13px;background:#244b37;display:grid;place-items:center;font-size:22px}.gauge-wrap{max-width:440px;margin:8px auto 0;text-align:center}.gauge{width:100%;height:auto;display:block;overflow:visible}.gauge-track{fill:none;stroke:#34483e;stroke-width:17;stroke-linecap:round}.gauge-fill{fill:none;stroke:#7bd18c;stroke-width:17;stroke-linecap:round;transition:stroke-dasharray .35s ease,stroke .25s ease}.gauge-fill.over{stroke:var(--red)}.gauge-main{font-size:42px;font-weight:800;fill:var(--blue)}.gauge-label{font-size:16px;fill:var(--muted)}.gauge-unit{font-size:13px;fill:var(--muted)}.gauge-end{font-size:12px;fill:var(--muted)}.kpi{background:#0d1a15;border:1px solid var(--line);padding:12px;border-radius:13px}.kpi strong{font-size:22px;display:block;margin-top:3px}.tabs{display:flex;gap:7px;overflow:auto;margin:10px 0}.tab{white-space:nowrap;background:#263d33;color:white}.tab.active{background:var(--green);color:#092016}.subtabs{display:flex;gap:6px;overflow:auto;margin-bottom:12px}.subtabs button{font-size:13px;padding:9px 11px}.bottom-nav{position:fixed;z-index:10;bottom:0;left:0;right:0;background:#101e18f2;border-top:1px solid var(--line);padding:8px max(12px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr);max-width:760px;margin:auto;backdrop-filter:blur(12px)}.nav-item{background:transparent;color:var(--muted);padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px}.nav-item svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.nav-item.active{color:var(--green)}.bar{height:9px;background:#263b31;border-radius:20px;overflow:hidden;flex:1}.bar>span{height:100%;display:block;background:var(--green);border-radius:20px}.week-row{display:flex;align-items:center;gap:9px;margin:11px 0}.week-row .day{width:34px;color:var(--muted);font-size:13px}.week-row .num{width:62px;text-align:right;font-size:12px}.badge{border-radius:20px;padding:5px 9px;font-size:12px;font-weight:700;background:#1e4b32;color:#8be3a9}.badge.red{background:#542929;color:#ff9b9b}.badge.neutral{background:#34443c;color:#c6d3cb}.empty{padding:14px;color:var(--muted);text-align:center}
+
+.setup-overlay{position:fixed;inset:0;z-index:30;background:#06100deF;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+.setup-overlay.hidden{display:none!important}.setup-card{width:min(100%,560px);max-height:94vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 20px 70px #0009}
+.setup-card h2{font-size:24px;margin:8px 0}.setup-card .field{margin:8px 0}.setup-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.setup-actions button{width:100%}.profile-line{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}.profile-line:last-child{border-bottom:0}
 </style></head><body><main>
 <header class="brand"><div class="brand-mark">🥑</div><div><h1>NutriCheck</h1><p class="muted" style="margin:2px 0 0">Tu alimentación, bajo control.</p></div></header>
 <section id="inicio" class="card main-panel">
@@ -28,9 +32,32 @@ input,select{width:100%;background:#0d1a15;color:white;border:1px solid var(--li
 <section id="recetas" class="card panel subpanel hidden"><h2>Biblioteca de recetas</h2><input id="catalogSearch" placeholder="Buscar receta o ingrediente"><select id="catalogCategory" style="margin-top:8px"><option value="">Todas las categorías</option><option>Comida mexicana</option><option>Alta en proteína</option><option>Comida completa</option><option>Cena</option><option>Meal prep</option><option>Estilo americano</option></select><div id="catalogResults"></div><hr style="border-color:var(--line);margin:18px 0"><h2>Crear receta propia</h2><div class="field"><label>Nombre</label><input id="rn" placeholder="Ej. Pasta con pollo"></div><div class="field"><label>Buscar ingrediente</label><input id="rq" placeholder="Ej. pollo"></div><div id="rresults"></div><div id="recipeStatus" class="status" aria-live="polite"></div><h3>Ingredientes</h3><div id="parts">Aún no agregas ingredientes.</div><div class="grid"><div class="field"><label>Peso final preparado (g)</label><input id="rw" type="number" min="1" placeholder="Ej. 1800"></div><div class="field"><label>Porciones</label><input id="rs" type="number" min="1" value="5"></div></div><div id="rtotal" class="result">Añade ingredientes para calcular.</div><button id="saveRecipe" type="button">Guardar receta</button><h3>Mis recetas</h3><div id="recipes"></div></section>
 \n<section id="diario" class="card panel subpanel hidden"><h2>Alimentos de hoy</h2><div id="diary"></div><button class="secondary" id="export">Exportar respaldo</button></section>
 </section>
-<section id="ajustes" class="main-panel hidden"><section id="meta" class="card"><h2>Unidades de medida</h2><p class="muted">Elige tu unidad de peso preferida.</p><div class="field"><label>Unidad de peso preferida</label><select id="preferredUnit"><option value="g">Gramos (g)</option><option value="kg">Kilogramos (kg)</option><option value="oz">Onzas (oz)</option><option value="lb">Libras (lb)</option></select></div><p class="hint">Los macros se calculan internamente en gramos.</p><hr style="border-color:var(--line);margin:18px 0"><h2>Mi objetivo de calorías</h2><p class="muted">Configura tu mantenimiento y el déficit que quieres aplicar, o escribe directamente tu meta diaria.</p><div class="targetbox"><div class="field"><label>Mantenimiento estimado (kcal/día)</label><input id="maintenance" type="number" min="1" step="25" placeholder="Ej. 2900"></div><div class="field"><label>Déficit (kcal/día)</label><select id="deficit"><option value="250">250 kcal</option><option value="300">300 kcal</option><option value="400">400 kcal</option><option value="500" selected>500 kcal</option><option value="600">600 kcal</option><option value="750">750 kcal</option></select></div></div><button id="applyDeficit" type="button">Calcular meta con déficit</button><div class="field"><label>O establece tu meta diaria directamente (kcal)</label><input id="manualGoal" type="number" min="1000" max="6000" step="25"></div><button id="saveGoal" type="button">Guardar meta diaria</button><p id="goalStatus" class="status" aria-live="polite"></p><p class="hint">El mantenimiento es una estimación: ajústalo según la evolución de tu peso y, si tienes dudas de salud, consulta a un profesional.</p></section></section>
+<section id="ajustes" class="main-panel hidden">
+<section class="card"><h2>Mi perfil y objetivos</h2><p class="muted" id="profileSummary">Configura tus datos para calcular tus calorías de mantenimiento y tu meta diaria.</p><button type="button" id="editProfile">Configurar mi perfil</button></section>
+<section id="meta" class="card"><h2>Unidades de medida</h2><p class="muted">Elige tu unidad de peso preferida.</p><div class="field"><label>Unidad de peso preferida</label><select id="preferredUnit"><option value="g">Gramos (g)</option><option value="kg">Kilogramos (kg)</option><option value="oz">Onzas (oz)</option><option value="lb">Libras (lb)</option></select></div><p class="hint">Los macros se calculan internamente en gramos.</p><hr style="border-color:var(--line);margin:18px 0"><h2>Mi objetivo de calorías</h2><p class="muted">Configura tu mantenimiento y el déficit que quieres aplicar, o escribe directamente tu meta diaria.</p><div class="targetbox"><div class="field"><label>Mantenimiento estimado (kcal/día)</label><input id="maintenance" type="number" min="1" step="25" placeholder="Ej. 2900"></div><div class="field"><label>Déficit (kcal/día)</label><select id="deficit"><option value="250">250 kcal</option><option value="300">300 kcal</option><option value="400">400 kcal</option><option value="500" selected>500 kcal</option><option value="600">600 kcal</option><option value="750">750 kcal</option></select></div></div><button id="applyDeficit" type="button">Calcular meta con déficit</button><div class="field"><label>O establece tu meta diaria directamente (kcal)</label><input id="manualGoal" type="number" min="1000" max="6000" step="25"></div><button id="saveGoal" type="button">Guardar meta diaria</button><p id="goalStatus" class="status" aria-live="polite"></p><p class="hint">El mantenimiento es una estimación: ajústalo según la evolución de tu peso y, si tienes dudas de salud, consulta a un profesional.</p></section></section>
 <section id="progreso" class="main-panel hidden"><section class="card"><h2>Progreso semanal</h2><p class="muted">Balance de calorías y evolución de tu peso.</p><div id="weeklySummary"></div></section><section class="card"><h2>Registrar peso</h2><p class="muted">Guarda tu peso de hoy para comparar cada semana.</p><div class="field"><label>Peso de hoy (kg)</label><input id="weightInput" type="number" min="20" max="400" step="0.1" placeholder="Ej. 133.0"></div><button id="saveWeight">Guardar peso</button><p id="weightStatus" class="status"></p><h3>Historial de peso</h3><div id="weightHistory"></div></section></section>
 <p class="note">Los datos se guardan en este dispositivo. Exporta un respaldo periódicamente. Catálogo inicial orientativo; estamos preparando la ampliación a 300 alimentos.</p></main>
+<div id="setupOverlay" class="setup-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="setupTitle">
+ <form id="setupForm" class="setup-card">
+  <div class="brand"><div class="brand-mark">🥑</div><div><h1>NutriCheck</h1><p class="muted" style="margin:2px 0 0">Tu alimentación, bajo control.</p></div></div>
+  <h2 id="setupTitle">¡Vamos a configurar tus objetivos!</h2>
+  <p class="muted">Estos datos sirven para estimar tus calorías. Puedes cambiarlos después en Ajustes.</p>
+  <div class="grid">
+   <div class="field"><label for="profileAge">Edad (años)</label><input id="profileAge" type="number" min="18" max="100" required placeholder="Ej. 30"></div>
+   <div class="field"><label for="profileWeight">Peso (kg)</label><input id="profileWeight" type="number" min="30" max="350" step=".1" required placeholder="Ej. 80"></div>
+   <div class="field"><label for="profileHeight">Estatura (cm)</label><input id="profileHeight" type="number" min="100" max="250" step="1" required placeholder="Ej. 175"></div>
+   <div class="field"><label for="profileSex">Sexo para la fórmula</label><select id="profileSex" required><option value="">Seleccionar</option><option value="male">Masculino</option><option value="female">Femenino</option></select></div>
+  </div>
+  <div class="field"><label for="profileActivity">Actividad física</label><select id="profileActivity"><option value="1.2">Poca actividad</option><option value="1.375">Actividad ligera (1–3 días)</option><option value="1.55" selected>Moderada (3–5 días)</option><option value="1.725">Alta (6–7 días)</option><option value="1.9">Muy alta / trabajo físico</option></select></div>
+  <div class="field"><label for="profileGoal">¿Cuál es tu objetivo?</label><select id="profileGoal"><option value="lose">Perder grasa</option><option value="maintain" selected>Mantener peso</option><option value="gain">Ganar masa muscular</option></select></div>
+  <div class="field"><label for="maintenanceMode">Calorías de mantenimiento</label><select id="maintenanceMode"><option value="calculate" selected>No las sé, calcúlalas</option><option value="manual">Ya conozco mi mantenimiento</option></select></div>
+  <div class="field hidden" id="manualMaintenanceWrap"><label for="profileMaintenance">Mantenimiento (kcal/día)</label><input id="profileMaintenance" type="number" min="1000" max="7000" step="25" placeholder="Ej. 2800"></div>
+  <p id="setupEstimate" class="hint" aria-live="polite">Calcularemos una estimación con tus datos.</p>
+  <p id="setupError" class="status" aria-live="polite"></p>
+  <div class="setup-actions"><button type="submit">Calcular mis objetivos</button><button type="button" class="secondary" id="skipSetup">Configurar después</button></div>
+  <p class="hint">Estimación orientativa basada en datos generales. No sustituye una valoración profesional.</p>
+ </form>
+</div>
 <script>
 const KEY='nutricheck-v1';
 const base=[
@@ -47,7 +74,14 @@ const unitHints={
 'Yogur griego natural sin grasa':['envase',150]
 };
 base.forEach(x=>{if(unitHints[x.name]){x.unit=unitHints[x.name][0];x.unitGrams=unitHints[x.name][1]}});
-let db=JSON.parse(localStorage.getItem(KEY)||'{"goal":2400,"days":{}}');db.days||={};db.customFoods||=[];db.recipes||=[];db.weights||={};db.goal||=2400;db.maintenance=db.maintenance||0;let parts=[];
+const hadExistingData=localStorage.getItem(KEY)!==null;
+let db=JSON.parse(localStorage.getItem(KEY)||'{"goal":null,"days":{}}');
+db.days||={};db.customFoods||=[];db.recipes||=[];db.weights||={};db.profile||=null;
+if(hadExistingData && !(Number(db.goal)>0)) db.goal=2400;
+if(!hadExistingData) db.goal=null;
+db.maintenance=Number(db.maintenance)||0;
+db.setupComplete=hadExistingData ? true : !!db.setupComplete;
+let parts=[];
 const today=()=>new Date().toLocaleDateString('en-CA');const day=()=>db.days[today()]|| (db.days[today()]=[]);
 const all=()=>[...base,...db.customFoods.map((x,i)=>({...x,id:'c'+i}))];const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const val=(x,g)=>{let m=g/100;return{k:x.k*m,p:x.p*m,c:x.c*m,f:x.f*m}};
@@ -143,11 +177,11 @@ document.getElementById('catalogSearch').oninput=renderCatalog;document.getEleme
 document.getElementById('preferredUnit').value=db.preferredUnit||'g';document.getElementById('preferredUnit').onchange=e=>{db.preferredUnit=e.target.value;save()};
 
 function render(){
- let t=day().reduce((a,x)=>({k:a.k+x.k,p:a.p+x.p,c:a.c+x.c,f:a.f+x.f}),{k:0,p:0,c:0,f:0}), consumed=t.k,goal=Number(db.goal)||2400,over=consumed>goal,ratio=goal>0?consumed/goal:0,pct=Math.min(100,ratio*100),remaining=Math.max(0,goal-consumed),extra=Math.max(0,consumed-goal);
- document.getElementById('goal').textContent=goal.toLocaleString('es-MX');
+ let t=day().reduce((a,x)=>({k:a.k+x.k,p:a.p+x.p,c:a.c+x.c,f:a.f+x.f}),{k:0,p:0,c:0,f:0}), consumed=t.k,hasGoal=Number(db.goal)>0,goal=hasGoal?Number(db.goal):0,over=hasGoal&&consumed>goal,ratio=hasGoal?consumed/goal:0,pct=Math.min(100,ratio*100),remaining=Math.max(0,goal-consumed),extra=Math.max(0,consumed-goal);
+ document.getElementById('goal').textContent=hasGoal?goal.toLocaleString('es-MX'):'Sin configurar';
  let fill=document.getElementById('gaugeFill');fill.setAttribute('stroke-dasharray',`${pct} ${100-pct}`);fill.classList.toggle('over',over);
- document.getElementById('gaugeCaption').textContent=over?'Te pasaste':'Te quedan';document.getElementById('gaugeNumber').textContent=Math.round(over?extra:remaining).toLocaleString('es-MX');document.getElementById('gaugeUnit').textContent='kcal';document.getElementById('gaugeGoal').textContent=goal.toLocaleString('es-MX');document.getElementById('consumedLabel').textContent=Math.round(consumed).toLocaleString('es-MX')+' kcal consumidas';document.getElementById('percentLabel').textContent=Math.round(ratio*100)+'%';
- let badge=document.getElementById('todayBadge');badge.textContent=over?'Meta superada':'Dentro de tu objetivo';badge.className='badge'+(over?' red':'');document.getElementById('maintenanceHome').textContent=db.maintenance?Number(db.maintenance).toLocaleString('es-MX'):'—';
+ document.getElementById('gaugeCaption').textContent=!hasGoal?'Configura tu meta':(over?'Te pasaste':'Te quedan');document.getElementById('gaugeNumber').textContent=hasGoal?Math.round(over?extra:remaining).toLocaleString('es-MX'):'—';document.getElementById('gaugeUnit').textContent=hasGoal?'kcal':'en Ajustes';document.getElementById('gaugeGoal').textContent=hasGoal?goal.toLocaleString('es-MX'):'—';document.getElementById('consumedLabel').textContent=Math.round(consumed).toLocaleString('es-MX')+' kcal consumidas';document.getElementById('percentLabel').textContent=hasGoal?Math.round(ratio*100)+'%':'—';
+ let badge=document.getElementById('todayBadge');badge.textContent=!hasGoal?'Meta sin configurar':(over?'Meta superada':'Dentro de tu objetivo');badge.className='badge'+(over?' red':' neutral');document.getElementById('maintenanceHome').textContent=db.maintenance?Number(db.maintenance).toLocaleString('es-MX'):'—';
  document.getElementById('macros').innerHTML=`<span class="macro">Proteína <b>${t.p.toFixed(1)} g</b></span><span class="macro">Carbos <b>${t.c.toFixed(1)} g</b></span><span class="macro">Grasas <b>${t.f.toFixed(1)} g</b></span>`;
  document.getElementById('diary').innerHTML=day().map((x,i)=>`<div class="food"><b>${esc(x.name)}</b><small style="display:block">${x.grams} g · ${Math.round(x.k)} kcal · P${x.p.toFixed(1)} C${x.c.toFixed(1)} G${x.f.toFixed(1)}</small> <button class="secondary" data-del="${i}">Quitar</button></div>`).join('')||'<div class="empty">Sin alimentos todavía.</div>';
  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{day().splice(+b.dataset.del,1);save()});document.getElementById('customList').innerHTML=db.customFoods.map(x=>`<div class="food">${esc(x.name)} — ${x.k} kcal /100 g</div>`).join('');document.getElementById('recipes').innerHTML=db.recipes.map((r,i)=>`<div class="result"><b>${esc(r.name)}</b><small style="display:block">${r.portions} porciones · ${Math.round(r.per.k)} kcal/porción · P${r.per.p.toFixed(1)} C${r.per.c.toFixed(1)} G${r.per.f.toFixed(1)}</small>${r.ingredients?'<small style="display:block">'+esc(r.ingredients.join(' · '))+'</small>':''}${r.prep?'<small style="display:block">'+esc(r.prep)+'</small>':''}<button data-recipe="${i}">Añadir 1 porción</button></div>`).join('');document.querySelectorAll('[data-recipe]').forEach(b=>b.onclick=()=>{let r=db.recipes[+b.dataset.recipe];day().push({name:r.name+' (1 porción)',grams:r.finalWeight/r.portions,...r.per});save()});
@@ -171,9 +205,62 @@ document.getElementById('q').oninput=e=>results(e.target.value,'results');docume
 document.getElementById('custom').onsubmit=e=>{e.preventDefault();db.customFoods.push({name:cn.value.trim(),k:+ck.value,p:+cp.value,c:+cc.value,f:+cf.value,...(cu.value.trim()&&+cg.value>0?{unit:cu.value.trim(),unitGrams:+cg.value}:{})});e.target.reset();save();document.getElementById('customList').insertAdjacentHTML('beforebegin','<p class="status">Alimento personalizado guardado.</p>')};
 document.getElementById('saveRecipe').onclick=()=>{if(!parts.length){document.getElementById('recipeStatus').textContent='Añade al menos un ingrediente antes de guardar.';return}let total=parts.reduce((a,x)=>{let v=val(x.food,x.grams);return{k:a.k+v.k,p:a.p+v.p,c:a.c+v.c,f:a.f+v.f}},{k:0,p:0,c:0,f:0}),portions=Math.max(1,+rs.value||1),finalWeight=+rw.value||parts.reduce((s,x)=>s+x.grams,0);db.recipes.push({name:rn.value.trim()||'Receta sin nombre',portions,finalWeight,per:{k:total.k/portions,p:total.p/portions,c:total.c/portions,f:total.f/portions}});parts=[];rn.value='';recipeRender();save();document.getElementById('recipeStatus').textContent='Receta guardada correctamente.'};
 ['rs','rw'].forEach(id=>document.getElementById(id).oninput=recipeRender);
-document.getElementById('preferredUnit').value=db.preferredUnit||'g';document.getElementById('maintenance').value=db.maintenance||'';document.getElementById('manualGoal').value=db.goal;
-document.getElementById('applyDeficit').onclick=()=>{let m=Number(document.getElementById('maintenance').value),d=Number(document.getElementById('deficit').value);if(!(m>0)){document.getElementById('goalStatus').textContent='Primero escribe tu mantenimiento estimado.';return}db.maintenance=m;db.goal=Math.round((m-d)/25)*25;document.getElementById('manualGoal').value=db.goal;save();document.getElementById('goalStatus').textContent='Meta calculada y guardada: '+db.goal+' kcal.'};
-document.getElementById('saveGoal').onclick=()=>{let g=Number(document.getElementById('manualGoal').value);if(g<1000||g>6000){document.getElementById('goalStatus').textContent='Usa una meta entre 1000 y 6000 kcal.';return}db.goal=g;db.maintenance=Number(document.getElementById('maintenance').value)||0;save();document.getElementById('goalStatus').textContent='Meta diaria guardada: '+g+' kcal.'};
+document.getElementById('preferredUnit').value=db.preferredUnit||'g';document.getElementById('maintenance').value=db.maintenance||'';document.getElementById('manualGoal').value=Number(db.goal)>0?db.goal:'';
+document.getElementById('applyDeficit').onclick=()=>{let m=Number(document.getElementById('maintenance').value),d=Number(document.getElementById('deficit').value);if(!(m>=1000&&m<=7000)){document.getElementById('goalStatus').textContent='Escribe un mantenimiento válido entre 1000 y 7000 kcal.';return}db.maintenance=m;db.goal=Math.max(1000,Math.round((m-d)/25)*25);db.setupComplete=true;document.getElementById('manualGoal').value=db.goal;save();document.getElementById('goalStatus').textContent='Meta calculada y guardada: '+db.goal+' kcal.';updateProfileSummary()};
+document.getElementById('saveGoal').onclick=()=>{let g=Number(document.getElementById('manualGoal').value);if(g<1000||g>6000){document.getElementById('goalStatus').textContent='Usa una meta entre 1000 y 6000 kcal.';return}db.goal=g;db.maintenance=Number(document.getElementById('maintenance').value)||0;db.setupComplete=true;save();document.getElementById('goalStatus').textContent='Meta diaria guardada: '+g+' kcal.';updateProfileSummary()};
+
+function updateProfileSummary(){
+ const p=db.profile,el=document.getElementById('profileSummary');
+ if(!el)return;
+ if(p){el.textContent=`${p.age} años · ${p.weight} kg · ${p.height} cm · ${p.activityLabel||'Actividad configurada'} · ${p.goalLabel||'Objetivo personalizado'}. Mantenimiento: ${Number(db.maintenance||0).toLocaleString('es-MX')} kcal · Meta: ${Number(db.goal||0).toLocaleString('es-MX')} kcal.`;}
+ else if(Number(db.goal)>0){el.textContent=`Meta diaria: ${Number(db.goal).toLocaleString('es-MX')} kcal. Puedes completar tu perfil para obtener una estimación más personalizada.`;}
+ else {el.textContent='Todavía no has configurado tus datos ni tu meta diaria.';}
+}
+function openSetup(){
+ const p=db.profile||{};
+ document.getElementById('profileAge').value=p.age||'';
+ document.getElementById('profileWeight').value=p.weight||'';
+ document.getElementById('profileHeight').value=p.height||'';
+ document.getElementById('profileSex').value=p.sex||'';
+ document.getElementById('profileActivity').value=p.activity||'1.55';
+ document.getElementById('profileGoal').value=p.goalType||'maintain';
+ document.getElementById('maintenanceMode').value=p.maintenanceMode||'calculate';
+ document.getElementById('profileMaintenance').value=db.maintenance||'';
+ document.getElementById('manualMaintenanceWrap').classList.toggle('hidden',document.getElementById('maintenanceMode').value!=='manual');
+ document.getElementById('setupError').textContent='';
+ document.getElementById('setupOverlay').classList.remove('hidden');
+}
+function closeSetup(){document.getElementById('setupOverlay').classList.add('hidden')}
+document.getElementById('editProfile').onclick=openSetup;
+document.getElementById('maintenanceMode').onchange=e=>document.getElementById('manualMaintenanceWrap').classList.toggle('hidden',e.target.value!=='manual');
+document.getElementById('skipSetup').onclick=()=>{db.setupComplete=true;save();closeSetup();updateProfileSummary()};
+document.getElementById('setupForm').onsubmit=e=>{
+ e.preventDefault();
+ const age=Number(document.getElementById('profileAge').value),weight=Number(document.getElementById('profileWeight').value),height=Number(document.getElementById('profileHeight').value),sex=document.getElementById('profileSex').value,activity=Number(document.getElementById('profileActivity').value),goalType=document.getElementById('profileGoal').value,mode=document.getElementById('maintenanceMode').value;
+ if(!(age>=18&&age<=100&&weight>=30&&weight<=350&&height>=100&&height<=250&&(sex==='male'||sex==='female'))){document.getElementById('setupError').textContent='Revisa edad, peso, estatura y sexo. Los datos deben estar dentro de los rangos indicados.';return}
+ let maintenance;
+ if(mode==='manual'){maintenance=Number(document.getElementById('profileMaintenance').value);if(!(maintenance>=1000&&maintenance<=7000)){document.getElementById('setupError').textContent='Introduce un mantenimiento entre 1000 y 7000 kcal.';return}}
+ else {const bmr=10*weight+6.25*height-5*age+(sex==='male'?5:-161);maintenance=Math.round((bmr*activity)/25)*25;}
+ let adjustment=goalType==='lose'?-400:goalType==='gain'?200:0;
+ let goal=Math.round((maintenance+adjustment)/25)*25;
+ if(goal<1000){document.getElementById('setupError').textContent='La meta calculada es demasiado baja. Revisa tus datos o consulta a un profesional.';return}
+ db.profile={age,weight,height,sex,activity:String(activity),activityLabel:document.getElementById('profileActivity').selectedOptions[0].text,goalType,goalLabel:document.getElementById('profileGoal').selectedOptions[0].text,maintenanceMode:mode};
+ db.maintenance=maintenance;db.goal=goal;db.setupComplete=true;
+ document.getElementById('maintenance').value=maintenance;document.getElementById('manualGoal').value=goal;
+ save();closeSetup();updateProfileSummary();
+ document.getElementById('goalStatus').textContent=`Objetivos guardados. Mantenimiento: ${maintenance} kcal · Meta: ${goal} kcal.`;
+};
+function refreshEstimate(){
+ const mode=document.getElementById('maintenanceMode').value;
+ const age=Number(document.getElementById('profileAge').value),weight=Number(document.getElementById('profileWeight').value),height=Number(document.getElementById('profileHeight').value),sex=document.getElementById('profileSex').value,activity=Number(document.getElementById('profileActivity').value);
+ if(mode==='manual'){document.getElementById('setupEstimate').textContent='Usaremos las calorías de mantenimiento que introduzcas.';return}
+ if(age>=18&&weight>=30&&height>=100&&sex){const bmr=10*weight+6.25*height-5*age+(sex==='male'?5:-161),m=Math.round((bmr*activity)/25)*25;document.getElementById('setupEstimate').textContent=`Mantenimiento estimado: aproximadamente ${m.toLocaleString('es-MX')} kcal/día. La meta final dependerá de tu objetivo.`}
+ else document.getElementById('setupEstimate').textContent='Calcularemos una estimación con tus datos.';
+}
+['profileAge','profileWeight','profileHeight','profileSex','profileActivity','profileGoal'].forEach(id=>document.getElementById(id).addEventListener('input',refreshEstimate));
+updateProfileSummary();
+if(!db.setupComplete)openSetup();
+
 document.querySelectorAll('[data-main]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-main]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.main-panel').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.main));if(b.dataset.main==='comidas'&&!document.querySelector('.subpanel:not(.hidden)'))showSub('buscar')});
 function showSub(id){document.querySelectorAll('.subpanel').forEach(x=>x.classList.toggle('hidden',x.id!==id));document.querySelectorAll('[data-sub]').forEach(x=>x.classList.toggle('active',x.dataset.sub===id))}
 document.querySelectorAll('[data-sub]').forEach(b=>b.onclick=()=>showSub(b.dataset.sub));document.getElementById('quickAdd').onclick=()=>{document.querySelector('[data-main="comidas"]').click();showSub('buscar');document.getElementById('q').focus()};
